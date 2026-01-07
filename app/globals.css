@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* You can keep your custom theme or utilities below if needed, e.g.: */
+@theme {
+  --font-sans: var(--font-inter);
+}
+
+/* Custom styles */
+body {
+  @apply bg-slate-50 text-slate-800;
+}
