@@ -1,10 +1,13 @@
 import mongoose from "mongoose";
 
-const uri = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI;
 
-if (!uri) {
+if (!MONGODB_URI) {
   throw new Error("Please define the MONGODB_URI environment variable");
 }
+
+// ✅ NEW constant that is guaranteed to be string
+const uri: string = MONGODB_URI;
 
 type MongooseCache = {
   conn: typeof mongoose | null;
@@ -16,14 +19,11 @@ declare global {
   var mongoose: MongooseCache | undefined;
 }
 
-// ✅ Explicitly type cached
 const cached: MongooseCache =
   global.mongoose ?? (global.mongoose = { conn: null, promise: null });
 
 async function connectDB() {
-  if (cached.conn) {
-    return cached.conn;
-  }
+  if (cached.conn) return cached.conn;
 
   if (!cached.promise) {
     const opts = { bufferCommands: false };
