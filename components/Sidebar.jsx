@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import {
-  FaStickyNote,
   FaPlus,
   FaHome,
   FaCog,
@@ -190,12 +189,15 @@ export default function Sidebar() {
               isWide ? "opacity-100 w-auto ml-4" : "opacity-0 w-0 ml-0"
             }`}
           >
-            <span className="text-sm font-bold text-slate-200 truncate font-sans tracking-wide whitespace-nowrap">
+            <Link href={"https://www.linkedin.com/in/jagadeesh-vanganooru-117872336/"}>
+                 <span className="text-sm font-bold text-slate-200 truncate font-sans tracking-wide whitespace-nowrap">
               JAGADEESH
             </span>
             <span className="text-[10px] text-cyan-500 truncate tracking-[0.15em] uppercase whitespace-nowrap">
               System Admin
             </span>
+            </Link>
+           
           </div>
         </div>
       </div>
